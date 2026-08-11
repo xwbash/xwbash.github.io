@@ -17,6 +17,7 @@ Hello, I'm Yiğit. I've been interested in computers since I was 13-14 years old
 -  **Operation Systems:** Windows XP-11, Windows 2008-2012 R2, Kali Linux, Parrot Security OS.
 
 ## 🎓 Experience 
+- Naphora Games Group - 4 Months - (Playable Ads Developer) *current*
 - Ela Game Studio - 10 Months - (Senior Generalist)
 - Voodoo - 1 Year - (Playable Developer)
 - Rune Games - 6 Months - (Game Developer - Tech Artist)
