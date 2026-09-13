@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yiğithan Aydın — CV</title>
+<style>
+  :root{
+    --ink:#1a1a24;
+    --muted:#5c6270;
+    --line:#d9dde3;
+    --accent:#0f6b4f;
+    --accent2:#b4531f;
+    --bg:#ffffff;
+    --chip:#f1f3f6;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  body{
+    font-family:"Segoe UI",-apple-system,Roboto,Helvetica,Arial,sans-serif;
+    color:var(--ink);
+    background:#e9ecf1;
+    line-height:1.5;
+    font-size:13px;
+  }
+  .sheet{
+    max-width:820px;
+    margin:22px auto;
+    background:var(--bg);
+    padding:38px 44px 40px;
+    box-shadow:0 4px 24px rgba(0,0,0,.10);
+  }
+
+  /* Header */
+  header{display:flex;gap:22px;align-items:flex-start;border-bottom:2px solid var(--ink);padding-bottom:16px;margin-bottom:18px;}
+  .head-text{flex:1;min-width:0;}
+  .me-photo{
+    width:104px;height:104px;border-radius:8px;object-fit:cover;flex-shrink:0;
+    border:1px solid var(--line);order:2;
+  }
+  .name{font-size:30px;font-weight:700;letter-spacing:.3px;line-height:1.05;}
+  .title-line{
+    font-size:12.5px;font-weight:600;color:var(--accent);
+    letter-spacing:.4px;margin-top:5px;text-transform:uppercase;
+  }
+  .badges{margin-top:9px;display:flex;flex-wrap:wrap;gap:6px;}
+  .badge{
+    font-size:10.5px;font-weight:700;letter-spacing:.6px;
+    padding:3px 9px;border-radius:3px;color:#fff;background:var(--accent2);
+    text-transform:uppercase;
+  }
+  .badge.alt{background:var(--accent);}
+  .contact{
+    margin-top:12px;display:flex;flex-wrap:wrap;gap:4px 18px;
+    font-size:11.5px;color:var(--muted);
+  }
+  .contact a{color:var(--muted);text-decoration:none;}
+  .contact a:hover{color:var(--accent);text-decoration:underline;}
+
+  /* Sections */
+  section{margin-top:20px;}
+  h2{
+    font-size:12px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;
+    color:var(--accent);border-bottom:1px solid var(--line);
+    padding-bottom:5px;margin-bottom:12px;
+  }
+  p.summary{font-size:12.5px;color:#33373f;}
+
+  /* Experience */
+  .job{display:flex;gap:12px;align-items:flex-start;margin-bottom:13px;page-break-inside:avoid;}
+  .job-logo{
+    width:38px;height:38px;border-radius:7px;object-fit:contain;flex-shrink:0;
+    background:#fff;border:1px solid var(--line);padding:2px;margin-top:2px;
+  }
+  .job-body{flex:1;min-width:0;}
+  .job-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;}
+  .job-co{font-size:13.5px;font-weight:700;}
+  .job-co .tag{font-weight:600;font-size:10.5px;color:var(--accent2);}
+  .job-dur{font-size:11px;color:var(--muted);white-space:nowrap;font-weight:600;}
+  .job-role{font-size:11.5px;color:var(--accent);font-weight:600;margin-top:1px;}
+  .job-note{font-size:11.5px;color:#44484f;margin-top:3px;}
+
+  /* Steam highlight */
+  .steam{
+    border:1px solid var(--accent2);border-left:4px solid var(--accent2);
+    background:#fbf4ee;border-radius:4px;padding:12px 15px;
+  }
+  .steam-banner{display:block;margin:-12px -15px 12px;border-bottom:1px solid var(--accent2);overflow:hidden;}
+  .steam-banner img{width:100%;height:150px;object-fit:cover;object-position:center 35%;display:block;}
+  .steam .st-top{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap;}
+  .steam h3{font-size:14px;font-weight:700;}
+  .steam .st-status{font-size:10px;font-weight:700;color:var(--accent2);letter-spacing:.6px;text-transform:uppercase;}
+  .steam p{font-size:12px;color:#44484f;margin-top:4px;}
+  .steam a{color:var(--accent2);font-weight:600;text-decoration:none;}
+
+  /* Skills grid */
+  .skills{display:grid;grid-template-columns:130px 1fr;gap:6px 14px;font-size:12px;}
+  .skills dt{font-weight:700;color:#33373f;}
+  .skills dd{color:#44484f;}
+
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:8px 26px;}
+  ul.clean{list-style:none;}
+  ul.clean li{font-size:12px;position:relative;padding-left:14px;margin-bottom:3px;color:#44484f;}
+  ul.clean li::before{content:"▹";position:absolute;left:0;color:var(--accent);}
+
+  /* Shipped titles grid */
+  .titles-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px 16px;}
+  .title-card{display:flex;align-items:center;gap:9px;page-break-inside:avoid;}
+  .title-ic{width:34px;height:34px;border-radius:8px;object-fit:cover;flex-shrink:0;border:1px solid var(--line);background:#fff;}
+  .title-meta{min-width:0;}
+  .title-nm{font-size:11px;font-weight:600;color:#33373f;line-height:1.25;}
+  .title-st{font-size:9px;color:var(--muted);letter-spacing:.4px;text-transform:uppercase;}
+  .subnote{font-size:11px;color:#44484f;margin-top:11px;padding-top:9px;border-top:1px dashed var(--line);}
+  .subnote b{color:#33373f;}
+
+  /* Reference */
+  .ref{display:flex;align-items:center;gap:13px;text-decoration:none;color:inherit;page-break-inside:avoid;}
+  .ref-photo{width:52px;height:52px;border-radius:50%;object-fit:cover;flex-shrink:0;border:1px solid var(--line);}
+  .ref-photo.fallback{
+    display:none;align-items:center;justify-content:center;
+    background:var(--accent);color:#fff;font-weight:700;font-size:16px;letter-spacing:.5px;border:none;
+  }
+  .ref-info{display:flex;flex-direction:column;gap:1px;}
+  .ref-name{font-size:13.5px;font-weight:700;}
+  .ref-role{font-size:11.5px;color:var(--accent);font-weight:600;}
+  .ref-link{font-size:11px;color:var(--muted);}
+  .ref:hover .ref-link{color:var(--accent);text-decoration:underline;}
+
+  .foot{margin-top:22px;border-top:1px solid var(--line);padding-top:8px;font-size:10.5px;color:var(--muted);text-align:center;}
+
+  /* Print */
+  @media print{
+    body{background:#fff;font-size:11.5px;}
+    .sheet{box-shadow:none;margin:0;max-width:none;padding:0 6mm;}
+    .no-print{display:none!important;}
+    section{margin-top:15px;}
+  }
+  .toolbar{
+    max-width:820px;margin:14px auto 0;text-align:right;
+  }
+  .toolbar button{
+    font:inherit;font-size:12px;font-weight:600;cursor:pointer;
+    background:var(--accent);color:#fff;border:none;border-radius:5px;
+    padding:8px 16px;
+  }
+  .toolbar button:hover{filter:brightness(1.08);}
+</style>
+</head>
+<body>
+
+<div class="toolbar no-print">
+  <button onclick="window.print()">⬇ Save as PDF / Print</button>
+</div>
+
+<div class="sheet">
+
+  <header>
+    <img class="me-photo" src="ProfilePhoto.jpg" alt="Yiğithan Aydın">
+    <div class="head-text">
+    <div class="name">Yiğithan Aydın</div>
+    <div class="title-line">Game &amp; Playable Ads Developer — Generalist</div>
+    <div class="badges">
+      <span class="badge">EX-VOODOO</span>
+      <span class="badge">EX-ROVIO (Ruby Games)</span>
+      <span class="badge alt">Building on Steam</span>
+    </div>
+    <div class="contact">
+      <span>✉ <a href="mailto:yigithan.aydin.business@gmail.com">yigithan.aydin.business@gmail.com</a></span>
+      <span>◆ <a href="https://xwbash.github.io">xwbash.github.io</a></span>
+      <span>in <a href="https://www.linkedin.com/in/yigitaydn/">linkedin.com/in/yigitaydn</a></span>
+      <span>⌥ <a href="https://github.com/xwbash">github.com/xwbash</a></span>
+      <span>▶ <a href="https://www.youtube.com/@realgorilladev">YouTube: @realgorilladev</a></span>
+    </div>
+    </div>
+  </header>
+
+  <section>
+    <h2>Profile</h2>
+    <p class="summary">
+      Game and playable-ads developer with 6+ years of industry experience, working across the full production
+      pipeline — from Unity / Cocos Creator gameplay and playable ads to shaders, editor tooling, and marketing art.
+      Former developer at <strong>Voodoo</strong> and at <strong>Ruby Games (a Rovio studio)</strong>. Strong in
+      Luna Playable and Unity C#, with hands-on experience in Shader Graph, Blender 3D simulations, and After Effects
+      motion design. Currently developing a personal co-op title, <strong>Scavenge Protocol</strong>, on Steam.
+    </p>
+  </section>
+
+  <section>
+    <h2>Featured Project</h2>
+    <div class="steam">
+      <a href="https://store.steampowered.com/app/4805600/Scavenge_Protocol/" class="steam-banner">
+        <img src="SteamProject-Horizontal.jpg" alt="Scavenge Protocol">
+      </a>
+      <div class="st-top">
+        <h3>Scavenge Protocol — Co-op Steam Game</h3>
+        <span class="st-status">In Development · Wishlist Live</span>
+      </div>
+      <p>
+        Personal co-op game project built in Unity — full-scope development across gameplay systems, technical art,
+        and shaders. Live on Steam for wishlisting.
+        &nbsp;<a href="https://store.steampowered.com/app/4805600/Scavenge_Protocol/">store.steampowered.com/app/4805600/Scavenge_Protocol</a>
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Experience</h2>
+
+    <div class="job">
+      <img class="job-logo" src="naphora.jpg" alt="Naphora">
+      <div class="job-body">
+        <div class="job-head">
+          <div class="job-co">Naphora Games Group</div>
+          <div class="job-dur">Current · 4 months</div>
+        </div>
+        <div class="job-role">Playable Ads Developer</div>
+      </div>
+    </div>
+
+    <div class="job">
+      <img class="job-logo" src="ela_game_studio_logo.jpg" alt="Ela Game Studio">
+      <div class="job-body">
+        <div class="job-head">
+          <div class="job-co">Ela Game Studio <span class="tag">(Rollic studio)</span></div>
+          <div class="job-dur">10 months</div>
+        </div>
+        <div class="job-role">Senior Generalist · Playable Ads Developer</div>
+      </div>
+    </div>
+
+    <div class="job">
+      <img class="job-logo" src="voyager_publishing_logo.jpg" alt="Voyager">
+      <div class="job-body">
+        <div class="job-head">
+          <div class="job-co">Voyager <span class="tag">(freelance via Ela)</span></div>
+          <div class="job-dur">3 months</div>
+        </div>
+        <div class="job-role">Playable Ads Developer</div>
+      </div>
+    </div>
+
+    <div class="job">
+      <img class="job-logo" src="voodooio_logo.jpg" alt="Voodoo">
+      <div class="job-body">
+        <div class="job-head">
+          <div class="job-co">Voodoo</div>
+          <div class="job-dur">1 year</div>
+        </div>
+        <div class="job-role">Playable Ads Developer</div>
+      </div>
+    </div>
+
+    <div class="job">
+      <img class="job-logo" src="rune_gaming_technologies_logo.jpg" alt="Rune Games">
+      <div class="job-body">
+        <div class="job-head">
+          <div class="job-co">Rune Games</div>
+          <div class="job-dur">6 months</div>
+        </div>
+        <div class="job-role">Game Developer · Technical Artist</div>
+      </div>
+    </div>
+
+    <div class="job">
+      <img class="job-logo" src="rubygamestudio_logo.jpg" alt="Ruby Games">
+      <div class="job-body">
+        <div class="job-head">
+          <div class="job-co">Ruby Games <span class="tag">(a Rovio studio)</span></div>
+          <div class="job-dur">2 years</div>
+        </div>
+        <div class="job-role">Game Developer · Playable Ads · Marketing Developer</div>
+      </div>
+    </div>
+
+    <div class="job">
+      <img class="job-logo" src="uncosoft_logo.jpg" alt="Uncosoft">
+      <div class="job-body">
+        <div class="job-head">
+          <div class="job-co">Uncosoft <span class="tag">(Rollic studio)</span></div>
+          <div class="job-dur">6 months</div>
+        </div>
+        <div class="job-role">Game Developer</div>
+      </div>
+    </div>
+
+    <div class="job">
+      <img class="job-logo" src="weboldcreative_logo.jpg" alt="WeBold Creative">
+      <div class="job-body">
+        <div class="job-head">
+          <div class="job-co">WeBold Creative</div>
+          <div class="job-dur">6 months</div>
+        </div>
+        <div class="job-role">Lead Motion Designer</div>
+      </div>
+    </div>
+
+    <div class="job">
+      <img class="job-logo" src="0density_logo.jpg" alt="Zero Density">
+      <div class="job-body">
+        <div class="job-head">
+          <div class="job-co">Zero Density</div>
+          <div class="job-dur">1 year 1 month</div>
+        </div>
+        <div class="job-role">IT Intern</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Technical Skills</h2>
+    <dl class="skills">
+      <dt>Engines</dt><dd>Unity, Cocos Creator, Unreal Engine, Cocos2D-X</dd>
+      <dt>Playable Ads</dt><dd>Luna Playable, Unity, Cocos Creator (Mintegral, Google, IronSource / networks)</dd>
+      <dt>Languages</dt><dd>C#, C++, TypeScript, Python</dd>
+      <dt>Technical Art</dt><dd>Shader Graph, custom shaders, editor tools, modular systems</dd>
+      <dt>Art &amp; Motion</dt><dd>Blender 3D (modeling, simulation, geometry nodes), After Effects</dd>
+    </dl>
+  </section>
+
+  <section>
+    <h2>Games I Worked On</h2>
+    <div class="titles-grid">
+      <div class="title-card"><img class="title-ic" src="https://play-lh.googleusercontent.com/PTxkeud-aHNGqo85reN70CUWs5DF0HTKNMIbM7lrxS1WdTD-G2X8X6szmD4CGlI7wg=w512-h512" alt="Hunter Assassin"><div class="title-meta"><div class="title-nm">Hunter Assassin</div><div class="title-st">Google Play</div></div></div>
+      <div class="title-card"><img class="title-ic" src="https://play-lh.googleusercontent.com/OwjtzoCbovFD2rImlejDvQZ0DQBaJV462OWWCQqganRKLWS9gPNNGhhfREnmOF8NWB8=w512-h512" alt="Hunter Strike"><div class="title-meta"><div class="title-nm">Hunter Strike</div><div class="title-st">Google Play</div></div></div>
+      <div class="title-card"><img class="title-ic" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ca/e4/62/cae46272-5395-e225-4b94-bd41dd2e69d4/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt="Mob Control"><div class="title-meta"><div class="title-nm">Mob Control</div><div class="title-st">App Store</div></div></div>
+      <div class="title-card"><img class="title-ic" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/b0/29/01/b029015e-4ba2-0ced-21b7-8a5c30c89bc0/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt="Hole.io"><div class="title-meta"><div class="title-nm">Hole.io</div><div class="title-st">App Store</div></div></div>
+      <div class="title-card"><img class="title-ic" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/68/24/86/6824866c-582b-8cb5-4f0f-c8923462c664/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt="Cup Heroes"><div class="title-meta"><div class="title-nm">Cup Heroes</div><div class="title-st">App Store</div></div></div>
+      <div class="title-card"><img class="title-ic" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ac/51/a2/ac51a240-a7e2-93ae-be40-08a0c8e26efb/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt="Block Jam 3D"><div class="title-meta"><div class="title-nm">Block Jam — 3D</div><div class="title-st">App Store</div></div></div>
+      <div class="title-card"><img class="title-ic" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/84/77/0a/84770a18-d746-233b-b4c0-d940dab5215e/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt="Coffee Pack"><div class="title-meta"><div class="title-nm">Coffee Pack</div><div class="title-st">App Store</div></div></div>
+      <div class="title-card"><img class="title-ic" src="https://play-lh.googleusercontent.com/cz1_Z0FNSW28-VBbLVg8okD9-E-KA6a3Pf6wsZ0GL7V93p6bJ5gL_va67kErJf2dSg=w512-h512" alt="My Renovation Life"><div class="title-meta"><div class="title-nm">My Renovation Life</div><div class="title-st">Google Play</div></div></div>
+      <div class="title-card"><img class="title-ic" src="https://play-lh.googleusercontent.com/vxuVGnQduL2dLWyqxZngLlGHwwwV8n2Xy3dpigdusiuKfhLQY6VPFiUvFW3h0IgoOUo=w240-h480-rw" alt="Beauty Care"><div class="title-meta"><div class="title-nm">Beauty Care!</div><div class="title-st">Google Play</div></div></div>
+      <div class="title-card"><img class="title-ic" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/bd/9f/db/bd9fdb76-040d-2e1a-948f-82b64d2cea96/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt="Shiny Swap"><div class="title-meta"><div class="title-nm">Shiny Swap: Diamond Puzzle</div><div class="title-st">App Store</div></div></div>
+      <div class="title-card"><img class="title-ic" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/00/a3/ff/00a3ff1d-8045-b385-2503-e25b09c3e12f/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt="My Tidy Life"><div class="title-meta"><div class="title-nm">My Tidy Life</div><div class="title-st">App Store</div></div></div>
+      <div class="title-card"><img class="title-ic" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ea/34/97/ea3497a3-bb39-ab45-a57f-13c93ca2c6fa/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt="Sorting Stacks"><div class="title-meta"><div class="title-nm">Sorting Stacks</div><div class="title-st">App Store</div></div></div>
+      <div class="title-card"><img class="title-ic" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/9f/26/ac/9f26acbc-678b-9363-46cf-084eb5c1fb07/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt="Roll Machine"><div class="title-meta"><div class="title-nm">Roll Machine</div><div class="title-st">App Store</div></div></div>
+      <div class="title-card"><img class="title-ic" src="https://is1-ssl.mzstatic.com/image/thumb/Purple122/v4/65/1a/48/651a4894-6ffe-caa9-8ec2-146a64edf0e7/AppIcon-0-0-1x_U007emarketing-0-0-0-5-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/512x512bb.jpg" alt="Melting Ball 3D"><div class="title-meta"><div class="title-nm">Melting Ball 3D</div><div class="title-st">App Store</div></div></div>
+      <div class="title-card"><img class="title-ic" src="https://is1-ssl.mzstatic.com/image/thumb/Purple112/v4/af/ae/0c/afae0c4b-2fb0-0660-79ad-d354576dcf00/AppIcon-0-0-1x_U007emarketing-0-0-0-5-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/512x512bb.jpg" alt="Breakup Support"><div class="title-meta"><div class="title-nm">Breakup Support</div><div class="title-st">App Store</div></div></div>
+      <div class="title-card"><img class="title-ic" src="https://is1-ssl.mzstatic.com/image/thumb/Purple112/v4/08/5f/9a/085f9a47-0d3c-3eff-29e3-165669c32b3b/AppIcon-0-0-1x_U007emarketing-0-0-0-5-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/512x512bb.jpg" alt="Takeaway Coffee"><div class="title-meta"><div class="title-nm">Takeaway Coffee</div><div class="title-st">App Store</div></div></div>
+      <div class="title-card"><img class="title-ic" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/8f/79/aa/8f79aa3c-85a6-5fa3-f0a2-a7bd67247e56/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg" alt="Sosyal Lig"><div class="title-meta"><div class="title-nm">Sosyal Lig — Fantasy Football</div><div class="title-st">App Store</div></div></div>
+      <div class="title-card"><img class="title-ic" src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/00/1b/29/001b29ec-8501-c6ba-a078-986cbf6ce29e/Placeholder.mill/200x200bb-75.webp" alt="Blitz"><div class="title-meta"><div class="title-nm">Blitz — Win Cash</div><div class="title-st">App Store</div></div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Reference</h2>
+    <a class="ref" href="https://www.linkedin.com/in/erman-haskan-8b834092/">
+      <img class="ref-photo" src="erman-haskan.jpg"
+           alt="Erman Haskan"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+      <span class="ref-photo fallback">EH</span>
+      <span class="ref-info">
+        <span class="ref-name">Erman Haskan</span>
+        <span class="ref-role">Main Developer — Head Ball &amp; Hunter Assassin</span>
+        <span class="ref-link">linkedin.com/in/erman-haskan-8b834092</span>
+      </span>
+    </a>
+  </section>
+
+  <div class="foot">
+    Portfolio, playable demos &amp; showreels available on request · github.com/xwbash
+  </div>
+
+</div>
+
+</body>
+</html>
